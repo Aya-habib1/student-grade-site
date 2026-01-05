@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade System</title>
+</head>
+<body>
+
+<h2>Student Grade System</h2>
+
+<input type="text" id="name" placeholder="Student Name"><br><br>
+<input type="text" id="code" placeholder="Student Code"><br><br>
+
+<button onclick="showGrade()">Show Grade</button>
+
+<p id="result"></p>
+
+<script>
+    var students = {
+        "101": {name: "Ali", grade: 85},
+        "102": {name: "Sara", grade: 92},
+        "103": {name: "Hassan", grade: 74}
+    };
+
+    function showGrade() {
+        var name = document.getElementById("name").value;
+        var code = document.getElementById("code").value;
+
+        if (students[code] && students[code].name === name) {
+            document.getElementById("result").innerHTML =
+            "Welcome " + name + "<br>Your grade is: " + students[code].grade;
+        } else {
+            document.getElementById("result").innerHTML =
+            "Wrong name or code!";
+        }
+    }
+</script>
+
+</body>
+</html>
