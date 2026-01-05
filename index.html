@@ -1,36 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Student Grade System</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5, #acb6e5);
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 380px;
+            background: white;
+            margin: 120px auto;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>Student Grade System</h2>
+<div class="container">
+    <h2>Student Grade System</h2>
 
-<input type="text" id="name" placeholder="Student Name"><br><br>
-<input type="text" id="code" placeholder="Student Code"><br><br>
+    <input type="text" id="name" placeholder="Enter Student Name">
+    <input type="text" id="code" placeholder="Enter Student Code">
 
-<button onclick="showGrade()">Show Grade</button>
+    <button onclick="showGrade()">Show Result</button>
 
-<p id="result"></p>
+    <div id="result"></div>
+
+    <footer>
+        Programming Project
+    </footer>
+</div>
 
 <script>
     var students = {
-        "101": {name: "Ali", grade: 85},
-        "102": {name: "Sara", grade: 92},
-        "103": {name: "Hassan", grade: 74}
+        "201": {name: "Ali", grade: 85},
+        "202": {name: "Hassan", grade: 72},
+        "203": {name: "Omar", grade: 48},
+        "204": {name: "Ahmed", grade: 91},
+
+        "301": {name: "Sara", grade: 95},
+        "302": {name: "Zainab", grade: 67},
+        "303": {name: "Fatima", grade: 54},
+        "304": {name: "Noor", grade: 39}
     };
 
     function showGrade() {
         var name = document.getElementById("name").value;
         var code = document.getElementById("code").value;
+        var result = document.getElementById("result");
 
-        if (students[code] && students[code].name === name) {
-            document.getElementById("result").innerHTML =
-            "Welcome " + name + "<br>Your grade is: " + students[code].grade;
+        if (students[code] && students[code].name.toLowerCase() === name.toLowerCase()) {
+
+            var grade = students[code].grade;
+            var status = (grade >= 50) ? "✅ Pass" : "❌ Fail";
+
+            result.style.color = (grade >= 50) ? "green" : "red";
+            result.innerHTML =
+                "Name: " + name +
+                "<br>Grade: " + grade +
+                "<br>Status: " + status;
+
         } else {
-            document.getElementById("result").innerHTML =
-            "Wrong name or code!";
+            result.style.color = "red";
+            result.innerHTML = "Wrong name or code!";
         }
     }
 </script>
