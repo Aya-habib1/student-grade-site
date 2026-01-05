@@ -8,20 +8,30 @@
         body {
             background: linear-gradient(135deg, #74ebd5, #acb6e5);
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
             width: 380px;
             background: white;
-            margin: 120px auto;
+            margin: 50px auto; /* تقليل الهامش العلوي ليتناسب مع الصورة */
             padding: 25px;
             border-radius: 15px;
             text-align: center;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
+        /* تنسيق الشعار */
+        .logo {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 15px;
+        }
+
         h2 {
             color: #333;
+            margin-bottom: 20px;
         }
 
         input {
@@ -41,6 +51,7 @@
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         button:hover {
@@ -54,9 +65,18 @@
         }
 
         footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: gray;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .student-name {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -64,6 +84,8 @@
 <body>
 
 <div class="container">
+    <img src="4975logo arabic.png" alt="University Logo" class="logo">
+    
     <h2>Student Grade System</h2>
 
     <input type="text" id="name" placeholder="Enter Student Name">
@@ -75,6 +97,7 @@
 
     <footer>
         Programming Project
+        <span class="student-name">الطالبة: آية حبيب</span>
     </footer>
 </div>
 
